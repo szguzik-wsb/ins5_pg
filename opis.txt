@@ -1,0 +1,55 @@
+import tkinter as tk:
+
+Importuje moduł tkinter używany do tworzenia interfejsów graficznych. Pseudonim tk jest stosowany, aby skrócić dalsze odwołania do tego modułu.
+from PIL import Image, ImageTk:
+
+Importuje klasy Image i ImageTk z modułu PIL. Są one używane do wczytywania i modyfikacji obrazów oraz ich wyświetlania w interfejsie tkinter.
+4-6. class PingPong::
+
+Deklaruje klasę PingPong, która reprezentuje całą grę ping-pong.
+7-10. def __init__(self, root)::
+
+Jest to konstruktor klasy PingPong. Oczekuje jednego argumentu - root, który będzie głównym oknem aplikacji.
+self.root = root:
+Przypisuje podany argument root do zmiennej instancji.
+self.root.title("Ping Pong @Szymon Guzik"):
+Ustawia tytuł głównego okna na "Ping Pong @Szymon Guzik".
+13-14. self.setup_ui(), self.setup_game():
+
+Wywołuje dwie metody, które inicjują interfejs użytkownika oraz mechanikę gry.
+16-29. def setup_ui(self)::
+
+Metoda odpowiedzialna za ustawienie podstawowego interfejsu użytkownika.
+17-19. self.canvas_width = 600, self.canvas_height = 400, self.canvas = tk.Canvas(...):
+
+Ustawia szerokość i wysokość obszaru gry (płótna), a następnie tworzy płótno o tych wymiarach.
+21-24. self.speed_label ..., self.restart_button ..., self.bounce_counter_label ..., self.start_button ...:
+
+Tworzy różne elementy interfejsu, takie jak etykiety oraz przyciski, i dodaje je do głównego okna.
+31-57. def setup_game(self)::
+
+Metoda odpowiedzialna za ustawienie początkowego stanu gry.
+59-88. def load_background(self):, def load_ball_image(self):, def load_paddle_image(self)::
+
+Metody odpowiedzialne za wczytywanie i skalowanie obrazów używanych w grze (tła, piłki i paletki).
+90-114. def start_countdown(self):, def update_countdown(self)::
+
+Metody odpowiedzialne za wyświetlenie odliczania przed rozpoczęciem gry.
+116-144. def move_ball(self)::
+
+Metoda odpowiedzialna za animację poruszania się piłki na płótnie.
+146-162. def move_left(self, event):, def move_right(self, event):, def increase_paddle_speed(self, event):, def decrease_paddle_speed(self, event)::
+
+Metody służące do sterowania paletką (lewo, prawo, zwiększenie i zmniejszenie prędkości).
+164-168. def end_game(self)::
+
+Wyświetla komunikat "Koniec gry" po zakończeniu rozgrywki.
+170-173. if __name__ == "__main__"::
+
+Sprawdza, czy skrypt jest uruchamiany jako główny program, a nie importowany jako moduł. Jeśli tak, to wykonuje poniższe instrukcje.
+root = tk.Tk():
+Tworzy główne okno aplikacji.
+game = PingPong(root):
+Tworzy instancję klasy PingPong, przekazując jej główne okno jako argument.
+root.mainloop():
+Uruchamia główną pętlę tkinter, która pozwala na interakcję z oknem aplikacji.
